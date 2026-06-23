@@ -16,6 +16,7 @@ const navItems = [
   { href: '/jumma',        label: 'Jumma Programs' },
   { href: '/ramadan',      label: 'Ramadan' },
   { href: '/madarsa',      label: 'Madarsa' },
+  { href: '/projects',     label: 'Dev Projects' },
   { href: '/reports',      label: 'Reports' },
   { href: '/audit',        label: 'Audit Logs' },
   { href: '/settings',     label: 'Settings' },
