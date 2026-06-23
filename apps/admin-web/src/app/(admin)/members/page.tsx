@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import Link from 'next/link'
 import type { Member } from '@masjidhub/types'
 import { formatDate } from '@masjidhub/utils'
 
@@ -14,6 +15,20 @@ export default async function MembersPage() {
 
   return (
     <div>
+      {/* Sub-nav */}
+      <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
+        {[
+          { href: '/members',          label: 'All Members' },
+          { href: '/members/fees',     label: 'Monthly Fees' },
+          { href: '/members/unpaid',   label: 'Unpaid' },
+          { href: '/members/families', label: 'Families' },
+        ].map(item => (
+          <Link key={item.href} href={item.href} style={{ padding: '6px 14px', borderRadius: 8, fontSize: 13, fontWeight: 600, background: 'white', border: '1px solid var(--color-neutral-light)', textDecoration: 'none', color: 'var(--color-text-primary)' }}>
+            {item.label}
+          </Link>
+        ))}
+      </div>
+
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
         <h1 style={{ fontSize: 22, fontWeight: 700 }}>Members</h1>
         <a
@@ -45,7 +60,9 @@ export default async function MembersPage() {
             {(members as Member[]).map((m, i) => (
               <tr key={m.id} style={{ borderTop: i > 0 ? '1px solid var(--color-neutral-light)' : undefined }}>
                 <td style={td}>{m.member_code}</td>
-                <td style={{ ...td, fontWeight: 500 }}>{m.full_name}</td>
+                <td style={{ ...td, fontWeight: 500 }}>
+                  <Link href={`/members/${m.id}`} style={{ color: 'var(--color-primary-green)', textDecoration: 'none' }}>{m.full_name}</Link>
+                </td>
                 <td style={td}>{m.phone ?? '—'}</td>
                 <td style={td}>{m.area}</td>
                 <td style={td}>{m.monthly_fee_amount.toLocaleString()}</td>
