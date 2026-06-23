@@ -12,6 +12,7 @@ const navItems = [
   { href: '/expenses',     label: 'Expenses' },
   { href: '/salaries',     label: 'Salaries' },
   { href: '/announcements',label: 'Announcements' },
+  { href: '/letters',      label: 'Letters & Docs' },
   { href: '/janaza',       label: 'Janaza' },
   { href: '/jumma',        label: 'Jumma Programs' },
   { href: '/ramadan',      label: 'Ramadan' },
