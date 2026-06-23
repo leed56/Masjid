@@ -1,5 +1,6 @@
 import * as Notifications from 'expo-notifications'
 import Constants from 'expo-constants'
+import { supabase } from './supabase'
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -21,6 +22,19 @@ export async function registerForPushNotifications(): Promise<string | null> {
   if (finalStatus !== 'granted') return null
 
   const projectId = Constants.expoConfig?.extra?.eas?.projectId
-  const token = await Notifications.getExpoPushTokenAsync({ projectId })
-  return token.data
+  const { data: tokenData } = await Notifications.getExpoPushTokenAsync({ projectId })
+  return tokenData
+}
+
+export async function savePushToken(masjid_id: string): Promise<void> {
+  const token = await registerForPushNotifications()
+  if (!token) return
+
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return
+
+  await supabase.from('push_tokens').upsert(
+    { user_id: user.id, masjid_id, token, platform: 'android' },
+    { onConflict: 'user_id,token' },
+  )
 }

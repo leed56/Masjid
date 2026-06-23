@@ -17,7 +17,7 @@ const navItems = [
   { href: '/ramadan',      label: 'Ramadan' },
   { href: '/madarsa',      label: 'Madarsa' },
   { href: '/reports',      label: 'Reports' },
-  { href: '/audit-logs',   label: 'Audit Logs' },
+  { href: '/audit',        label: 'Audit Logs' },
   { href: '/settings',     label: 'Settings' },
 ]
 
