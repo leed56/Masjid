@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "MasjidHub LK",
+    "slug": "masjidhub-lk",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1A7A4A"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "lk.masjidhub.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1A7A4A"
+      },
+      "package": "lk.masjidhub.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#1A7A4A"
+        }
+      ]
+    ],
+    "scheme": "masjidhub",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

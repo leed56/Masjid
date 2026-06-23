@@ -1,0 +1,12 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@masjidhub/types": ["../../packages/types/src/index.ts"],
+      "@masjidhub/config": ["../../packages/config/src/index.ts"],
+      "@masjidhub/utils": ["../../packages/utils/src/index.ts"],
+      "@/*": ["./*"]
+    }
+  }
+}

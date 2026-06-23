@@ -1,0 +1,19 @@
+{
+  "name": "masjidhub-lk",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "yarn workspace @masjidhub/admin-web dev",
+    "dev:mobile": "yarn workspace @masjidhub/mobile start",
+    "build:web": "yarn workspace @masjidhub/admin-web build",
+    "typecheck": "yarn workspaces run typecheck",
+    "lint": "yarn workspaces run lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "yarn@1.22.22"
+}
